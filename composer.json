@@ -20,19 +20,11 @@
         "monolog/monolog": "^2.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.4"
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {
             "slimapi\\": "src/slimapi"
-        }
-    },
-    "autoload-dev": {
-        "classmap": [
-            "database/"
-        ],
-        "psr-4": {
-            "Tests\\": "tests/"
         }
     },
     "config": {
