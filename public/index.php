@@ -14,34 +14,38 @@ require __DIR__ . '/../vendor/autoload.php';
 $app = AppFactory::create();
 
 /**
- * API routes/subroutes
+ * API routes
 */
 $app->get('/', function (Request $request, Response $response, array $args) {
     $response->getBody()->write("API using Slim Micro Framework");
     return $response->withHeader('Content-Type', 'application/json');
 });
 
-$app->group('drivers', function (RouteCollectorProxy $group) {
-    $group->get('/all', function (Request $request, Response $response) {
-        $response->getBody()->write('List all drivers');
+$app->group('/drivers/[{id:[0-9]+}]', function (RouteCollectorProxy $group) {
+    $group->map(['GET', 'DELETE', 'PATCH', 'PUT'], '', function ($request, $response, array $args) {
+        
+        $response->getBody()->write('david, joao, bastiao, jonas');
         return $response->withHeader('Content-Type', 'application/json');
-    });
-    $group->post('/add', function (Request $request, Response $response) {
-        $response->getBody()->write('Add driver');
+        
+    });   
+});
+
+$app->group('/routes/[{id:[0-9]+}]', function (RouteCollectorProxy $group) {
+    $group->map(['GET', 'DELETE', 'PATCH', 'PUT'], '', function ($request, $response, array $args) {
+        
+        $response->getBody()->write('s10570a, s10570b, s10570c, s10570d');
         return $response->withHeader('Content-Type', 'application/json');
-    });
-    $group->get('/{id}', function (Request $request, Response $response) {
-        $response->getBody()->write('List driver by id');
+        
+    });   
+});
+
+$app->group('/packages/[{id:[0-9]+}]', function (RouteCollectorProxy $group) {
+    $group->map(['GET', 'DELETE', 'PATCH', 'PUT'], '', function ($request, $response, array $args) {
+        
+        $response->getBody()->write('22, 45, 68, 72');
         return $response->withHeader('Content-Type', 'application/json');
-    });
-    $group->put('/{id}', function (Request $request, Response $response) {
-        $response->getBody()->write('Update driver');
-        return $response->withHeader('Content-Type', 'application/json');
-    });
-    $group->delete('/{id}', function (Request $request, Response $response) {
-        $response->getBody()->write('Delete driver');
-        return $response->withHeader('Content-Type', 'application/json');
-    });
+        
+    });   
 });
 
 // Run app
