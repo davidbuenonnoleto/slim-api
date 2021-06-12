@@ -1,18 +1,62 @@
-# IDEs and editors
-/.idea
-.project
-.classpath
-*.launch
-.settings/
+.idea/
+nbproject/
+composer.phar
+composer.lock
+.DS_STORE
+cache.properties
+.php_cs.cache
+.vscode
+.phpunit.result.cache
+package-lock.json
 
-#System Files
-.DS_Store
-Thumbs.db
+# keys
+*.pem
+*.key
+*.ppk
+*.p12
+*.pfx
+*.crt
+*.cer
+*.der
 
-#Slim .gitignore
+vendor/
+build/
+node_modules/
 
-/vendor/
 .env
-/logs/*
-!/logs/README.md
-public/tests
+public/.env
+
+env.php
+config/env.php
+
+#!public/assets/
+#public/assets/*
+#!public/assets/.htaccess
+
+!tmp/
+tmp/*
+!tmp/.htaccess
+
+!tmp/translations/
+tmp/translations/*
+!tmp/translations/empty
+
+!tmp/assets/
+tmp/assets/*
+!tmp/assets/empty
+
+!tmp/twig/
+tmp/twig/*
+!tmp/twig/empty
+
+!tmp/routes/
+tmp/routes/*
+!tmp/routes/empty
+
+!logs/
+logs/*
+!logs/.htaccess
+
+!public/assets/
+public/assets/*
+!public/assets/.htaccess
