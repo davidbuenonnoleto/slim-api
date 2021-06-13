@@ -27,22 +27,22 @@ CREATE TABLE `users` (
   KEY `user_role_id` (`user_role_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
-CREATE TABLE `routes` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `areacode` int NOT NULL,
-  `description` varchar(45) NOT NULL,
-  `user_id` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_routes_users_idx` (`user_id`),
-  CONSTRAINT `fk_route_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+  CREATE TABLE `routeareas` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `areacode` int NOT NULL,
+    `description` varchar(45) NOT NULL,
+    `user_id` int NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `fk_routeareas_users_idx` (`user_id`),
+    CONSTRAINT `fk_routearea_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 CREATE TABLE `packages` (
   `id` int NOT NULL AUTO_INCREMENT,
   `weight` int NOT NULL,
   `address` varchar(255) NOT NULL,
-  `route_id` int NOT NULL,
+  `routearea_id` int NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_packages_routes_idx` (`route_id`),
-  CONSTRAINT `fk_package_route` FOREIGN KEY (`route_id`) REFERENCES `routes` (`id`)
+  KEY `fk_packages_routeareas_idx` (`routearea_id`),
+  CONSTRAINT `fk_package_routearea` FOREIGN KEY (`routeare  a_id`) REFERENCES `routeareas` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;

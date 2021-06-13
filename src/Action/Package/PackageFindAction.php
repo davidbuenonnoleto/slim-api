@@ -53,7 +53,7 @@ final class PackageFindAction
      *
      * @return ResponseInterface The response
      */
-    private function transform(ResponseInterface $response, array $users): ResponseInterface
+    private function transform(ResponseInterface $response, array $packages): ResponseInterface
     {
         $packageList = [];
 

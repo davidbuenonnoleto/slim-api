@@ -2,7 +2,7 @@
 
 namespace App\Action\RouteArea;
 
-use App\Domain\User\Service\RouteAreaFinder;
+use App\Domain\RouteArea\Service\RouteAreaFinder;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

@@ -36,7 +36,7 @@ final class RouteAreaRepository
         $row = $this->toRow($routeArea);
         $row['created_at'] = Chronos::now()->toDateTimeString();
 
-        return (int)$this->queryFactory->newInsert('routeAreas', $row)
+        return (int)$this->queryFactory->newInsert('routeareas', $row)
             ->execute()
             ->lastInsertId();
     }
@@ -52,7 +52,7 @@ final class RouteAreaRepository
      */
     public function getRouteAreaById(int $routeAreaId): RouteAreaData
     {
-        $query = $this->queryFactory->newSelect('routeAreas');
+        $query = $this->queryFactory->newSelect('routeareas');
         $query->select(
             [
                 'id',
@@ -85,7 +85,7 @@ final class RouteAreaRepository
 
         $row['updated_at'] = Chronos::now()->toDateTimeString();
 
-        $this->queryFactory->newUpdate('routeAreas', $row)
+        $this->queryFactory->newUpdate('routeareas', $row)
             ->andWhere(['id' => $routeArea->id])
             ->execute();
     }
@@ -99,7 +99,7 @@ final class RouteAreaRepository
      */
     public function existsRouteAreaId(int $routeAreaId): bool
     {
-        $query = $this->queryFactory->newSelect('routeAreas');
+        $query = $this->queryFactory->newSelect('routeareas');
         $query->select('id')->andWhere(['id' => $routeAreaId]);
 
         return (bool)$query->execute()->fetch('assoc');
@@ -114,7 +114,7 @@ final class RouteAreaRepository
      */
     public function deleteRouteAreaById(int $routeAreaId): void
     {
-        $this->queryFactory->newDelete('routeAreas')
+        $this->queryFactory->newDelete('routeareas')
             ->andWhere(['id' => $routeAreaId])
             ->execute();
     }
